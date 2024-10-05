@@ -1,0 +1,47 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ERC20-Scroll
+    network: scroll-sepolia
+    source:
+      address: "0x893677ba1B1f794bbc836ac3FB8F5950a0c47436"
+      abi: ERC20-Scroll
+      startBlock: 6876417
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - GameMasterAdded
+        - GameMasterRemoved
+        - OwnershipTransferred
+        - Paused
+        - RewardMinted
+        - Transfer
+        - Unpaused
+      abis:
+        - name: ERC20-Scroll
+          file: ./abis/ERC20-Scroll.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: GameMasterAdded(indexed address)
+          handler: handleGameMasterAdded
+        - event: GameMasterRemoved(indexed address)
+          handler: handleGameMasterRemoved
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: RewardMinted(indexed address,uint256)
+          handler: handleRewardMinted
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/erc-20-scroll.ts
