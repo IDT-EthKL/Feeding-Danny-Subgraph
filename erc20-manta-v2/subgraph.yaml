@@ -8,9 +8,9 @@ dataSources:
     name: Contract
     network: scroll-sepolia
     source:
-      address: "0xe3ba6f3debe7c639c6f57bfc451ce3fe979748e3"
+      address: "0x15455Ee837cf3E8115862900AA9434E92d95c662"
       abi: Contract
-      startBlock: 2002019
+      startBlock: 6876228
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
