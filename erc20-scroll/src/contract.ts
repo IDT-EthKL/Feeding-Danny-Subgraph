@@ -7,7 +7,7 @@ import {
   RewardMinted as RewardMintedEvent,
   Transfer as TransferEvent,
   Unpaused as UnpausedEvent
-} from "../generated/ERC20-Scroll/ERC20-Scroll"
+} from "../generated/Contract/Contract"
 import {
   Approval,
   GameMasterAdded,

@@ -9,7 +9,7 @@ import {
   RewardMinted,
   Transfer,
   Unpaused
-} from "../generated/ERC20-Scroll/ERC20-Scroll"
+} from "../generated/Contract/Contract"
 
 export function createApprovalEvent(
   owner: Address,

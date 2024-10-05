@@ -5,11 +5,11 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: ERC20-Scroll
+    name: Contract
     network: scroll-sepolia
     source:
       address: "0x893677ba1B1f794bbc836ac3FB8F5950a0c47436"
-      abi: ERC20-Scroll
+      abi: Contract
       startBlock: 6876417
     mapping:
       kind: ethereum/events
@@ -25,8 +25,8 @@ dataSources:
         - Transfer
         - Unpaused
       abis:
-        - name: ERC20-Scroll
-          file: ./abis/ERC20-Scroll.json
+        - name: Contract
+          file: ./abis/Contract.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
@@ -44,4 +44,4 @@ dataSources:
           handler: handleTransfer
         - event: Unpaused(address)
           handler: handleUnpaused
-      file: ./src/erc-20-scroll.ts
+      file: ./src/contract.ts
