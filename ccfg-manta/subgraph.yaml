@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: scroll-sepolia
+    source:
+      address: "0x5600a56980492570B74C71B16A242544208e4E53"
+      abi: Contract
+      startBlock: 6876945
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CrossChainInteraction
+        - FishEaten
+        - OwnershipTransferred
+        - PlayerGrown
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: CrossChainInteraction(uint32,address,uint256)
+          handler: handleCrossChainInteraction
+        - event: FishEaten(indexed address,uint256,uint256)
+          handler: handleFishEaten
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PlayerGrown(indexed address,uint256)
+          handler: handlePlayerGrown
+      file: ./src/contract.ts
